@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Function finding the divsors , count of divisor and their sum 
+
+// O(N) Time Complexity  
+void OofN_Approach(int n){
+    int cnt=0;
+    int sum=0;
+    for(int i=1;i<=n;i++){
+        if(n%i==0){
+            cout<<i<<endl;
+            cnt++;
+            sum+=i;
+        }
+    }
+    cout<<cnt<<" "<<sum<<endl;
+}
+
+// O(Root_N) Time Complexity
+void Squrarroot_Approach(int n){
+    int cnt=0;
+    int sum=0;
+    for(int i=1;i*i<=n;i++){
+        if(n%i==0){
+          cout<<i<<" "<<n/i<<endl;
+          cnt+=1;
+          sum+=i;
+          if(n/i!=i){
+              cnt+=1;
+              sum+=n/i;
+          }
+        }
+        
+    }
+    cout<<cnt<<" "<<sum<<endl;
+}
+
+int main(){
+    int n;cin>>n; // 36
+    OofN_Approach(n);
+    Squrarroot_Approach(n);
+    
+    return 0;
+}
