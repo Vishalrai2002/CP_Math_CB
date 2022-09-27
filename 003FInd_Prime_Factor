@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// Function to find the prime factors of a numbers
+
+
+
+// O(N) Time Complexity 
+void find_Prime_Factor(int n){ 
+    // Kisi bhi number ka sabse small divisor hamra prime number hota hai
+
+    vector<int>PrimeFactor; // to store our Prime Factors
+    for(int i=2;i<=n;i++){ 
+        while(n%i==0){ // jab tak divide ho raha hai krte raho 
+            PrimeFactor.push_back(i);
+            n/=i;
+        }
+    }
+    for(int Prime:PrimeFactor){ // Print our prime factors
+        cout<<Prime<<" ";
+    }
+    cout<<endl;
+}
+
+// O(SQRT(N)) Time Complexity
+
+void Find_Sqrt_Prime_fac(int n){
+    // Non- Prime Number ke liye sqrt(n) se pahle hame 1 prime definetly mil jayega.
+    vector<int>PrimeFactor;
+    for(int i=2;i*i<=n;i++){
+        while(n%i==0){
+            PrimeFactor.push_back(i);
+            n/=i;
+        }
+    }
+    // I do this because in case of n=24 it prints only 2,2,2 but desired is 2,2,2,3 
+    // so in this case at last our 3 remain which is prime so to handle this i push n 
+    if(n>1){
+        PrimeFactor.push_back(n);
+    }
+    for(auto Prime:PrimeFactor){
+        cout<<Prime<<" ";
+    }
+    cout<<endl;
+}
+
+int main(){
+    int n;cin>>n;
+    // 24 -> 2 2 2 3
+    find_Prime_Factor(n);
+    Find_Sqrt_Prime_fac(n);
+    return 0;
+}
