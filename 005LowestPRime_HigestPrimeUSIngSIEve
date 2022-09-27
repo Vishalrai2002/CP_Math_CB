@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+// Program to find the lowest Prime and highest prime using sieve Algorithm
+
+
+int n=1e7+10;
+vector<bool>is_Prime(n,1); // initially i marked all as a prime
+vector<int>lowestPrime(n,0), highestPrime(n,0); // to store lowestprime and highest prime
+
+int main(){
+
+    is_Prime[0]=is_Prime[1]=false;
+    for(int i=2;i<n;i++){
+        if(is_Prime[i]==true){
+            lowestPrime[i]=highestPrime[i]=i; // intially lowprime or highesprime i hi hoga
+            for(int j=2*i;j<n;j+=i){
+                is_Prime[j]=false;
+                highestPrime[j]=i; // Highes prime hamesha replace hota rahega bde number se
+                if(lowestPrime[j]==0){
+                    lowestPrime[j]=i; // ye bas ek baar mark ho jayega fir replac nhi hoga
+                }
+            }
+        }
+    }
+        cout<<"Lowest Prime"<<" "<<"Highest Prime"<<endl; 
+        // we prine the lowest prime and highest prime for first 50 numbers
+    for(int i=1;i<50;i++){
+        cout<<lowestPrime[i]<<"                  "<<highestPrime[i]<<endl;
+    }
+    cout<<endl;
+
+    return 0;
+}
