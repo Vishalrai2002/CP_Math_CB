@@ -1,5 +1,17 @@
 #include<iostream>
 using namespace std;
+
+/*
+Given T test case and in each tc a number n. print its
+factorial for each tc % M
+where M = 10^9+7
+
+constraints 
+1<=T<=10^5
+1<=N<=10^5
+
+*/
+
 const int M=1e9+7;
 const int N=1e5+10;
 
