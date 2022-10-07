@@ -46,6 +46,7 @@ int main(){
 
         // Time Complexity -> O(N^2) + O(Q) -> 10^6 + 10^5 = 10^6
         // Check notes
+        
         cout<<pf[c][d]-pf[a-1][d]-pf[c][b-1]+pf[a-1][b-1]<<endl;
     }
     
