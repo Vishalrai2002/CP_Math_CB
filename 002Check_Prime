@@ -2,6 +2,7 @@
 using namespace std;
 
 // Check whether a number is Prime or not
+// do this
 
 // O(N) Time Complexity  
 void O_N_Approach(int n){
