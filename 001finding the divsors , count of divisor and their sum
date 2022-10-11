@@ -26,7 +26,7 @@ void Squrarroot_Approach(int n){
           cout<<i<<" "<<n/i<<endl;
           cnt+=1;
           sum+=i;
-          if(n/i!=i){
+          if(n/i!=i){ // to handle the case of 36 
               cnt+=1;
               sum+=n/i;
           }

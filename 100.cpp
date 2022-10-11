@@ -1,40 +1,30 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-void solution(){
-   int n;
-        cin>>n;
-    vector<string>a(n),b(n);
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-        getline(cin,b[i]);
-    }
-    reverse(a.begin(),a.end());
-    reverse(b.begin(),b.end());
-    for(int i=0;i<n;i++){
-        if(i==0){
-            cout<<"Begin"<<b[i]<<" ";
+void solution(int n){
+    int cnt=0;
+    int sum=0;
+    for(int i=1;i*i<=n;i++){
+        if(n%i==0){
+        //   cout<<i<<" "<<n/i<<endl;
+          cnt+=1;
+          sum+=i;
+          if(n/i!=i){
+              cnt+=1;
+              sum+=n/i;
+          }
         }
-        else{
-            if(a[i-1]=="Left"){
-                cout<<"Right"<<b[i]<<" ";
-            }
-            else{
-                cout<<"Left"<<b[i]<<" ";
-            }
-        }
-        cout<<endl;
+        
     }
-    cout<<endl;
+    cout<<sum<<endl;
 }
-
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--){
-        solution();
-    }
+  
+        int n;
+        cin>>n;
+        solution(n);
+
 
     return 0;
 }
